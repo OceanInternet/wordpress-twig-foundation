@@ -1,0 +1,14 @@
+{
+    "name": "ocean-internet/wordpress-twig-foundaton",
+    "description": "WordPress (Parent) Theme using Twig & Foundation",
+    "require": {
+        "tgm/plugin-activation": "~2.4"
+    },
+    "license": "GPL2",
+    "authors": [
+        {
+            "name": "Andy Weir",
+            "email": "andy@ocean-internet.co.uk"
+        }
+    ]
+}

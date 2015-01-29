@@ -1,0 +1,27 @@
+{
+  "name": "wordpress-twig-foundation",
+  "version": "0.0.0",
+  "homepage": "https://github.com/OceanInternet/wordpress-twig-foundation",
+  "authors": [
+    "Andy Weir <andy@uknetweb.com>"
+  ],
+  "description": "WordPress (Parent) Theme using Twig & Foundation",
+  "main": "style.css",
+  "keywords": [
+    "wordpress",
+    "twig",
+    "foundation",
+    "theme"
+  ],
+  "license": "GPL2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "zurb/bower-foundation#~5.5.0"
+  }
+}
