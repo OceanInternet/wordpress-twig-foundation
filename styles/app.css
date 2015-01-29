@@ -1,14 +1,12 @@
-.slide h2,
-.slide p
-.slide a:link {
+.orbit-caption {
     color: #fff;
 }
 
-.slide h2 {
+.orbit-caption h2 {
     font-size: 1rem;
 }
-.slide p,
-.slide p a{
+.orbit-caption p,
+.orbit-caption .read-more {
     font-size: 0.9rem;
     margin-bottom: 0;
 }
