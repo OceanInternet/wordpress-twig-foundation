@@ -1,3 +1,18 @@
+.slide h2,
+.slide p
+.slide a:link {
+    color: #fff;
+}
+
+.slide h2 {
+    font-size: 1rem;
+}
+.slide p,
+.slide p a{
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
 body.admin-bar {
 }
 

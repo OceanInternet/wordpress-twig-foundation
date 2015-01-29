@@ -4,12 +4,18 @@
 
     <!-- Content Slider -->
     <div class="row">
-        <div class="large-12">
-            <div id="featured" data-orbit>
+        <div class="large-12 columns">
+            <ul class="featured" data-orbit>
                 {% for post in carousel %}
-                    <img src="{{post.get_thumbnail.get_src|resize(970, 500)}}" class="my-thumb-class" alt="{{post.title}}" />
+                    <li class="slide">
+                        <img src="{{post.get_thumbnail.get_src|resize(970, 500)}}" class="my-thumb-class" alt="{{post.title}}" />
+                        <div class="orbit-caption">
+                            <h2><a href="{{ post.link }}">{{post.title}}</a></h2>
+                            <p class="hidden-for-small">{{post.get_preview}}</p>
+                        </div>
+                    </li>
                 {% endfor %}
-            </div>
+            </ul>
         </div>
     </div>
     <!-- End Content Slider -->
