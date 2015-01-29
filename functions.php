@@ -14,6 +14,8 @@ add_action('tgmpa_register', 'ois_tf_register_required_plugins');
 
 add_action('wp_enqueue_scripts', 'ois_tf_enqueue_scripts');
 
+add_action( 'widgets_init', 'ois_tf_widgets_init');
+
 function ois_tf_register_required_plugins() {
     $plugins = array(
         array(
@@ -90,6 +92,36 @@ function ois_tf_enqueue_scripts() {
 
     wp_enqueue_style('ois_tf_app_style');
     wp_enqueue_script('ois_tf_app_script');
+}
+
+function ois_tf_widgets_init() {
+
+    register_sidebar( array(
+        'name' => 'Home Primary Widget',
+        'id' => 'home-primary',
+        'before_widget' => '<div>',
+        'after_widget' => '</div>',
+        'before_title' => '<h2>',
+        'after_title' => '</h2>',
+    ) );
+
+    register_sidebar( array(
+        'name' => 'Home Widget 1',
+        'id' => 'home-one',
+        'before_widget' => '<div>',
+        'after_widget' => '</div>',
+        'before_title' => '<h2>',
+        'after_title' => '</h2>',
+    ) );
+
+    register_sidebar( array(
+        'name' => 'Home Widget 2',
+        'id' => 'home-two',
+        'before_widget' => '<div>',
+        'after_widget' => '</div>',
+        'before_title' => '<h2>',
+        'after_title' => '</h2>',
+    ) );
 }
 
 function myfoo($text){

@@ -1,0 +1,45 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <!-- Content Slider -->
+    <div class="row">
+        <div class="large-12">
+            <div id="featured" data-orbit>
+                {% for post in carousel %}
+                    <img src="{{post.get_thumbnail.get_src|resize(970, 500)}}" class="my-thumb-class" alt="{{post.title}}" />
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- End Content Slider -->
+
+    <!-- Widgets -->
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="row">
+
+                <!-- Primary Widget -->
+                <div class="large-4 medium-12 columns">
+                    {{ homePrimary }}
+                </div>
+                <!-- End Primary Widget -->
+
+
+                <!-- Widget 1 -->
+                <div class="large-4 medium-6 small-12 columns">
+                    {{ homeOne }}
+                </div>
+                <!-- End Widget 1 ->
+
+                <!-- Widget 2 -->
+                <div class="large-4 medium-6 small-12 columns">
+                    {{ homeTwo }}
+                </div>
+                <!-- End Widget 2 -->
+
+            </div>
+        </div>
+    </div>
+    <!-- End Widgets -->
+{% endblock %}
