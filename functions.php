@@ -10,9 +10,11 @@ if (!class_exists('Timber')){
 // Include Composer Packages
 require 'vendor/autoload.php';
 
-add_action('tgmpa_register', 'ois_twig_foundation_register_required_plugins');
+add_action('tgmpa_register', 'ois_tf_register_required_plugins');
 
-function ois_twig_foundation_register_required_plugins() {
+add_action('wp_enqueue_scripts', 'ois_tf_enqueue_scripts');
+
+function ois_tf_register_required_plugins() {
     $plugins = array(
         array(
             'name'     => 'Timber',
@@ -59,6 +61,35 @@ function ois_twig_foundation_register_required_plugins() {
     );
 
     tgmpa( $plugins, $config );
+}
+
+function ois_tf_register_styles() {
+
+    $dir = get_template_directory_uri();
+
+
+    wp_register_style('ois_tf_foundation', $dir . '/bower_components/foundation/css/foundation.css', array());
+    wp_register_style('ois_tf_app_style',  $dir . '/styles/app.css', array('ois_tf_foundation'));
+}
+
+function ois_tf_register_scripts() {
+
+    $dir = get_template_directory_uri();
+
+    wp_register_script('ois_tf_modernizr',  $dir . '/bower_components/modernizr/modernizr.js', array(), FALSE, FALSE);
+    wp_register_script('ois_tf_jquery',     $dir . '/bower_components/jquery/dist/jquery.js', array(), FALSE, TRUE);
+    wp_register_script('ois_tf_foundation', $dir . '/bower_components/foundation/js/foundation.js', array('ois_tf_modernizr',
+                                                                                                        'ois_tf_jquery'     ), FALSE, TRUE);
+    wp_register_script('ois_tf_app_script',        $dir . '/scripts/app.js' , array('ois_tf_foundation'), FALSE, TRUE);
+}
+
+function ois_tf_enqueue_scripts() {
+
+    ois_tf_register_styles();
+    ois_tf_register_scripts();
+
+    wp_enqueue_style('ois_tf_app_style');
+    wp_enqueue_script('ois_tf_app_script');
 }
 
 function myfoo($text){
