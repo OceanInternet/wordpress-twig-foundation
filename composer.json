@@ -10,5 +10,8 @@
             "name": "Andy Weir",
             "email": "andy@ocean-internet.co.uk"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": {"Ois": "src/"}
+    }
 }
