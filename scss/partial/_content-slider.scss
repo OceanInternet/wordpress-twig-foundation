@@ -1,0 +1,32 @@
+@import "foundation/components/orbit";
+@import "../settings/orbit";
+
+.content-slider {
+  @extend .row;
+  > div {
+    @extend .large-12;
+    @extend .columns;
+  }
+}
+
+.orbit-caption {
+
+  h2 {
+    font-size: $orbit-caption-font-size;
+    margin-top: 0;
+    @media #{$small-only} {
+      margin: 0;
+    }
+  }
+
+  p {
+    @extend .hidden-for-small;
+    font-size: $orbit-caption-font-size;
+    margin: 0;
+
+    .read-more {
+      font-size: $small-font-size;
+      color: $small-font-color;
+    }
+  }
+}

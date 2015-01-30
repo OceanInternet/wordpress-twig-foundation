@@ -1,4 +1,10 @@
 @import "normalize";
-@import "foundation";
+@import "foundation/components/type";
+@import "foundation/components/grid";
+@import "foundation/components/visibility";
 
-@import "partial/orbit";
+// Settings
+@import "settings/settings";
+
+// Content Slider
+@import "partial/content-slider";
