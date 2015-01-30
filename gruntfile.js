@@ -36,5 +36,5 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.registerTask('default', ['clean','git-rev-parse','concat', 'uglify']);
+    grunt.registerTask('default', ['compass']);
 };
