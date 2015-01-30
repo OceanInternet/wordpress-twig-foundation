@@ -1,0 +1,29 @@
+{
+  "name": "wordpress-twig-foundation",
+  "version": "0.0.0",
+  "description": "WordPress (Parent) Theme using Twig & Foundation",
+  "main": "style.css",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OceanInternet/wordpress-twig-foundation.git"
+  },
+  "keywords": [
+    "wordpress",
+    "twig",
+    "foundation",
+    "theme"
+  ],
+  "author": "Andy Weir <andy@ocean-internet.co.uk>",
+  "license": "GPL2",
+  "bugs": {
+    "url": "https://github.com/OceanInternet/wordpress-twig-foundation/issues"
+  },
+  "homepage": "https://github.com/OceanInternet/wordpress-twig-foundation",
+  "devDependencies": {
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-compass": "^1.0.1",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}

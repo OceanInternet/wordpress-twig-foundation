@@ -21,7 +21,9 @@
     "test",
     "tests"
   ],
+  "directory" : "theme/components",
   "dependencies": {
-    "foundation": "zurb/bower-foundation#~5.5.0"
+    "foundation": "zurb/bower-foundation#~5.5.0",
+    "font-awesome": "~4.3.0"
   }
 }

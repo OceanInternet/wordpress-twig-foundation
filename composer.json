@@ -11,7 +11,8 @@
             "email": "andy@ocean-internet.co.uk"
         }
     ],
+    "vendor-dir": "theme/vendor",
     "autoload": {
-        "psr-0": {"Ois": "src/"}
+        "psr-0": {"Ois": "theme/src/"}
     }
 }

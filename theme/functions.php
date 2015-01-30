@@ -70,17 +70,16 @@ function ois_tf_register_styles() {
     $dir = get_template_directory_uri();
 
 
-    wp_register_style('ois_tf_foundation', $dir . '/bower_components/foundation/css/foundation.css', array());
-    wp_register_style('ois_tf_app_style',  $dir . '/styles/app.css', array('ois_tf_foundation'));
+    wp_register_style('ois_tf_app_style',  $dir . '/stylesheets/app.css', array());
 }
 
 function ois_tf_register_scripts() {
 
     $dir = get_template_directory_uri();
 
-    wp_register_script('ois_tf_modernizr',  $dir . '/bower_components/modernizr/modernizr.js', array(), FALSE, FALSE);
-    wp_register_script('ois_tf_jquery',     $dir . '/bower_components/jquery/dist/jquery.js', array(), FALSE, TRUE);
-    wp_register_script('ois_tf_foundation', $dir . '/bower_components/foundation/js/foundation.js', array('ois_tf_modernizr',
+    wp_register_script('ois_tf_modernizr',  $dir . '/components/modernizr/modernizr.js', array(), FALSE, FALSE);
+    wp_register_script('ois_tf_jquery',     $dir . '/components/jquery/dist/jquery.js', array(), FALSE, TRUE);
+    wp_register_script('ois_tf_foundation', $dir . '/components/foundation/js/foundation.js', array('ois_tf_modernizr',
                                                                                                         'ois_tf_jquery'     ), FALSE, TRUE);
     wp_register_script('ois_tf_app_script',        $dir . '/scripts/app.js' , array('ois_tf_foundation'), FALSE, TRUE);
 }

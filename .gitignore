@@ -1,7 +1,6 @@
 node_modules
-dist
 .tmp
 .sass-cache
-bower_components
-vendor
+theme/components
+theme/vendor
 composer.lock
