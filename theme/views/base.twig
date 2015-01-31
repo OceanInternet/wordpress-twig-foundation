@@ -1,79 +1,56 @@
-{% block html_head_container %}
-{% include 'html-header.twig' %}
-    {% block head %}
+<!doctype html>
+<html class="no-js" lang="{{ site.language_attributes }}">
+<head>
+    {% include 'element/layout/html-header.twig' %}
+    {% block head_scripts %}
     {% endblock %}
-    </head>
+    {% if GoogleAnalyticsID %}
+
+        <!-- Google Analytics -->
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', '{{ GoogleAnalyticsID }}', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+        <!-- End Google Analytics -->
+    {% endif %}
+</head>
+<body class="{{ body_class }}" data-template="base.twig">
+
+{% include 'element/layout/browse-happy.twig' %}
+
+<!-- Start Header -->
+{% include 'element/layout/header.twig' %}
+<!-- End Header -->
+
+<!-- Start Content -->
+<main>
+    {% block content %}
+    {% include 'element/layout/main.twig' %}
+    {% endblock %}
+</main>
+<!-- End Content -->
+
+<!-- Start Footer -->
+{% block footer %}
+    {% include 'element/layout/footer.twig' %}
 {% endblock %}
-    <body class="{{body_class}}" data-template="base.twig">
-    <!-- Navigation -->
-    <header class="contain-to-grid sticky">
-        <nav class="top-bar" data-topbar>
-            <ul class="title-area">
-                <!-- Title Area -->
-                <li class="name">
-                    <h1>
-                        <a href="/">{{ site.name }}</a>
-                    </h1>
-                </li>
-                <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
-            </ul>
+<!-- End Footer -->
 
-            <section class="top-bar-section">
-                <!-- Right Nav Section -->
-                <ul class="right">
-                    {% for item in menu.get_items %}
-                        <li class="{% if item.get_children %}has-dropdown {% endif %}{{ item.classes | join(' ') }}">
-                            <a href="{{ item.get_link }}">{{ item.title }}</a>
-                            {% if item.get_children %}
-                                <ul class="dropdown">
-                                    {% for child in item.get_children %}
-                                        <li  class="{% if child.get_children %}has-dropdown {% endif %}{{ child.classes | join(' ') }}">
-                                            <a href="{{ child.get_link }}">{{ child.title }}</a>
-                                            {% if child.get_children %}
-                                                <ul class="dropdown">
-                                                    {% for childchild in child.get_children %}
-                                                        <li  class="{{ childchild.classes | join(' ') }}">
-                                                            <a href="{{ childchild.get_link }}">{{ childchild.title }}</a>
-                                                        </li>
-                                                    {% endfor %}
-                                                </ul>
-                                            {% endif %}
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
-                        </li>
-                    {% endfor %}
-                </ul>
-            </section>
-        </nav>
-    </header>
-    <!-- End Navigation -->
-
-    <!-- Start Content -->
-    <div class="row">
-        <section id="content" role="main" class="large-12 columns">
-            {% if title %}<h1>{{title}}</h1>{% endif %}
-            <div class="wrapper {{sidebar_class}}">
-                {% block content %}
-                    Sorry, no content
-                {% endblock %}
-            </div>
-            {% if sidebar %}
-                <aside class="layout-sidebar">
-                    {{sidebar}}
-                </aside>
-            {% endif %}
-        </section>
-    </div>
-
-        {% block footer %}
-            <div class="row">
-            <footer id="footer" class="large-12 columns">
-                {% include 'footer.twig' %}
-            </footer>
-            </div>
-        {% endblock %}
-    {{ function('wp_footer') }}
-    </body>
+{{ function('wp_footer') }}
+{% block foot_scripts %}
+{% endblock %}
+</body>
 </html>

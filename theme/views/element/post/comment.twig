@@ -1,0 +1,13 @@
+<article id="comment-{{ comment.ID }}"
+         class="comment{{ (comment.comment_type and comment.comment_type != 'comment') ? ' comment-'~comment.comment_type }}">
+    <h3 class="comment-author"><a href="{{ comment.author.link }}">{{ comment.author.name }}</a> says</h3>
+
+    <div class="comment-content">{{ comment.comment_content|wpautop }}</div>
+    {% if comment.comment_count %}
+        <section class="comments">
+            {% for cmt in comment.get_comments() %}
+                {% include "element/post/comment.twig" with {comment:cmt} only %}
+            {% endfor %}
+        </section>
+    {% endif %}
+</article>

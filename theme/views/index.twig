@@ -1,10 +1,9 @@
 {% extends "base.twig" %}
-
 {% block content %}
-	<h2>{{foo}}</h2>
-	<p>{{qux}}</p>
-	{% for post in posts %}
-		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-	{% endfor %}
-
+	<article>
+		{% if title %}<h1>{{ title }}</h1>{% endif %}
+		{% for post in posts %}
+			{% include ['element/tease-'~post.post_type~'.twig', 'element/tease.twig'] %}
+		{% endfor %}
+	</article>
 {% endblock %}

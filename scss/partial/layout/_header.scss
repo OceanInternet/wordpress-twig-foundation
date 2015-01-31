@@ -1,0 +1,68 @@
+@import "../../../theme/components/foundation/scss/foundation/components/top-bar";
+
+body > header {
+  @extend .contain-to-grid;
+
+  nav {
+    @extend .top-bar;
+    @extend .row;
+
+    .brand {
+
+      @extend .title-area;
+      @extend .clearfix;
+
+      .toggle-topbar {
+        @extend .menu-icon;
+      }
+
+      @extend .large-4;
+      @extend .medium-6;
+      @extend .small-12;
+      @extend .columns;
+
+      .name {
+
+        @media #{$small-only} {
+
+          width: 75%;
+        }
+
+        h1 {
+
+          a {
+            display: block !important;
+            padding: 0;
+            height: $topbar-height;
+            white-space: nowrap;
+            overflow: hidden !important;
+            text-overflow: ellipsis;
+
+            &.title {
+              @extend .hidden-for-medium-up;
+            }
+            &.description {
+              @extend .show-for-medium-up;
+            }
+          }
+        }
+      }
+    }
+
+    section {
+      @extend .top-bar-section;
+      .main-menu {
+        @extend .right;
+
+        @extend .large-8;
+        @extend .medium-6;
+        @extend .columns;
+
+        @media #{$medium-up} {
+          height: $topbar-height !important;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}

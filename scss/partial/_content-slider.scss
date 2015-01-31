@@ -2,7 +2,6 @@
 @import "../settings/orbit";
 
 .content-slider {
-  @extend .row;
   > div {
     @extend .large-12;
     @extend .columns;

@@ -1,0 +1,91 @@
+@mixin prev-next($target, $align) {
+
+  @extend #{'.' + $target};
+  @extend .medium-6;
+  @extend .small-12;
+  @extend .columns;
+  a {
+    width: 100%;
+    @extend #{'.text-' + $align};
+    @extend .button;
+  }
+}
+
+article {
+
+  h1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  footer {
+
+    dt, dd {
+      display: inline-block;
+      margin: 0;
+    }
+
+    dt::after {
+      content: '\00a0';
+    }
+
+    .categories {
+
+      dd:after {
+        content: ", ";
+      }
+
+      dd:last-child:after {
+        content: "";
+      }
+    }
+    .tags {
+
+      dd {
+        @extend .secondary;
+        a {
+          @extend .label;
+          @extend .radius;
+        }
+      }
+
+      dd:after {
+        content: "\00a0";
+      }
+
+      dd:last-child:after {
+        content: "";
+      }
+    }
+  }
+
+  .prev-next {
+
+    @extend .row;
+    @extend .clearfix;
+
+    .prev {
+      @include prev-next('prev', 'right');
+      @extend .right;
+    }
+
+    .next {
+      @include prev-next('next', 'left');
+      @extend .left;
+    }
+
+    @media #{$small-only} {
+
+      .prev a, .next a {
+        text-align: center !important;
+      }
+    }
+  }
+
+  .comment {
+    .comment-author {
+      @extend cite;
+    }
+    @extend blockquote;
+  }
+}

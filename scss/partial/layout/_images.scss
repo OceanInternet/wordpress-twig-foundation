@@ -1,0 +1,65 @@
+.wp-caption {
+  @include thumb;
+  margin-bottom: $paragraph-margin-bottom;
+  .wp-caption-text {
+    @extend .text-center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: ($paragraph-margin-bottom / 2) ($column-gutter / 2);
+  }
+}
+.post-thumbnail {
+  text-align: center;
+  figure {
+    margin: 0;
+    @include thumb;
+    display: inline-block;
+    > a, img {
+      display: block;
+    }
+  }
+  figcaption {
+    @extend p;
+    @extend .text-center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: ($paragraph-margin-bottom / 2) ($column-gutter / 2);
+  }
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alignleft {
+  @extend .left;
+  margin-right: ($column-gutter / 2);
+  .wp-caption-text {
+    @extend .text-left;
+  }
+}
+
+.alignright {
+  @extend .right;
+  margin-left: ($column-gutter / 2);
+  .wp-caption-text {
+    @extend .text-right;
+  }
+}
+
+.alignleft, .alignright, .aligncenter {
+  img {
+    width: 100% !important;
+    display: block;
+  }
+}
+
+img {
+  &.alignleft, &.alignright, &.aligncenter {
+    margin-bottom: $paragraph-margin-bottom;
+  }
+}

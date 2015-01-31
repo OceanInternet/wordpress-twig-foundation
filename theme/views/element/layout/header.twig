@@ -1,0 +1,41 @@
+<header class="sticky">
+    <nav data-topbar>
+        <ul class="brand">
+            <li class="toggle-topbar"><a href="#"><span></span></a></li>
+            <li class="name">
+                <h1>
+                    <a href="/" class="title">{{ site.title }}</a> <a href="/" class="description">{{ site.description }}</a>
+                </h1>
+            </li>
+        </ul>
+
+        <!-- Right Nav Section -->
+        <section>
+        <ul class="main-menu">
+            {% for item in menu.get_items %}
+                <li class="{% if item.get_children %}has-dropdown {% endif %}{{ item.classes | join(' ') }}">
+                    <a href="{{ item.get_link }}">{{ item.title }}</a>
+                    {% if item.get_children %}
+                        <ul class="dropdown">
+                            {% for child in item.get_children %}
+                                <li class="{% if child.get_children %}has-dropdown {% endif %}{{ child.classes | join(' ') }}">
+                                    <a href="{{ child.get_link }}">{{ child.title }}</a>
+                                    {% if child.get_children %}
+                                        <ul class="dropdown">
+                                            {% for childchild in child.get_children %}
+                                                <li class="{{ childchild.classes | join(' ') }}">
+                                                    <a href="{{ childchild.get_link }}">{{ childchild.title }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        </section>
+    </nav>
+</header>

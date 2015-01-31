@@ -1,0 +1,20 @@
+body>footer {
+  @extend .row;
+
+  .copyright {
+
+    @extend .medium-6;
+    @extend .columns;
+  }
+
+  nav {
+    @extend .medium-6;
+    @extend .small-12;
+    @extend .columns;
+
+    ul {
+      @include inline-list();
+      @extend .right;
+    }
+  }
+}

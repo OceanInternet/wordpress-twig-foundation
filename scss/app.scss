@@ -1,10 +1,24 @@
 @import "normalize";
+
+@import "settings/foundation";
+@import "settings/font-awesome";
+
 @import "foundation/components/type";
 @import "foundation/components/grid";
 @import "foundation/components/visibility";
+@import "foundation/components/forms";
+@import "foundation/components/inline-lists";
+@import "foundation/components/tables";
+@import "foundation/components/labels";
+@import "foundation/components/thumbs";
 
-// Settings
-@import "settings/settings";
+@import "font-awesome";
 
-// Content Slider
+@import "partial/layout/header";
+@import "partial/layout/main";
+@import "partial/layout/footer";
+@import "partial/layout/images";
+
 @import "partial/content-slider";
+
+@import "partial/post/article";

@@ -1,0 +1,71 @@
+{% extends "base.twig" %}
+{% block content %}
+    <article id="post-{{ post.ID }} class="post{{ (post.post_type and (post.post_type != 'post')) ? ' post-'~post.post_type }}{{ post.thumbnail ? ' has-thumbnail' }}{{ post.children ? ' has-children' }}{{ post.comment_status == 'open' ? ' allow-comments' }}{{ post.comments ? ' has-comments' }}">
+        <header>
+            {% if post.title %}
+    <h1>{% if post.can_edit %}
+        <small class="edit right"><a href="{{ post.edit_link }}"><i class="fa fa-edit"></i></a>
+        </small>{% endif %}{{ post.title }}</h1>{% endif %}
+            <p class="author text-right">by <a href="{{ post.author.link }}">{{ post.author.display_name }}</a> on {{ post.display_date }}</p>
+        </header>
+        {% if post.thumbnail %}
+    <section class="post-thumbnail">
+        <figure>
+            <a href="{{ post.thumbnail.link }}"><img src="{{ post.thumbnail.src }}" alt="{{ post.thumbnail.caption }}"></a>
+            {% if post.thumbnail.caption %}
+                <figcaption>{{ post.thumbnail.caption }}</figcaption>
+            {% endif %}
+        </figure>
+    </section>
+{% endif %}
+        <section class="content">
+        {{ post.content }}
+        </section>
+        {% if post.categories or post.tags %}
+    <footer>
+        {% if post.categories %}
+            <dl class="categories">
+            <dt>posted in:</dt>{% for category in post.categories %}
+        <dd><a href="{{ category.link }}">{{ category.name }}</a></dd>{% endfor %}</dl>{% endif %}
+        {% if post.tags %}
+            <dl class="tags">
+            <dt>tags:</dt>{% for tag in post.tags %}
+        <dd><a href="{{ tag.link }}"><i class="fa fa-tag"></i> {{ tag.name }}</a></dd>{% endfor %}</dl>{% endif %}
+    </footer>
+{% endif %}
+        {% if post.children %}
+    <aside class="children">
+        <h2>Pages:</h2>
+        <ul>
+            {% for child in post.children %}
+                <li><a href="{{ child.link }}">{{ child.title }}</a></li>{% endfor %}
+        </ul>
+    </aside>
+{% endif %}
+        <aside class="comments">
+            <h2>Comments:</h2>
+            {% if post.comment_status == 'open' %}
+    <div class="comment-form">{{ comment_form }}</div>
+{% else %}
+    <p class="comments-closed">Post closed for comments.</p>
+{% endif %}
+            {% if post.comment_count %}
+    <section class="comments">
+        {% for cmt in post.get_comments() %}
+            {% include "element/post/comment.twig" with {comment:cmt} %}
+        {% endfor %}
+    </section>
+{% endif %}
+        </aside>
+        {% if post.prev or post.next %}
+    <aside class="prev-next">
+        {% if post.next %}
+            <div class="next"><a href="{{ post.next.link }}">&laquo; {{ post.next.title }}</a></div>
+        {% endif %}
+        {% if post.prev %}
+            <div class="prev"><a href="{{ post.prev.link }}">{{ post.prev.title }} &raquo;</a></div>
+        {% endif %}
+    </aside>
+{% endif %}
+    </article>
+{% endblock %}
