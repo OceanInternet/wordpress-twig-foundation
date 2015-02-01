@@ -52,13 +52,14 @@ body > header {
     section {
       @extend .top-bar-section;
       .main-menu {
+
         @extend .right;
 
         @extend .large-8;
         @extend .medium-6;
-        @extend .columns;
 
         @media #{$medium-up} {
+          padding: 0 ($column-gutter /2);
           height: $topbar-height !important;
           overflow: hidden;
         }

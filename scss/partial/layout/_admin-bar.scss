@@ -1,0 +1,26 @@
+.admin-bar {
+
+  >header {
+    top: 32px;
+    @media screen and ( max-width: 782px ) {
+      top: 46px
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    #wpadminbar {
+      position: fixed !important;
+    }
+  }
+
+//  html { margin-top: 32px !important; }
+//  * html body { margin-top: 32px !important; }
+//  @media screen and ( max-width: 782px ) {
+//    html { margin-top: 46px !important; }
+//    * html body { margin-top: 46px !important; }
+//  }
+}
+
+/* Toolbar Touchification*/
+
+/* Smartphone */
