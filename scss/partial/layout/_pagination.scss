@@ -1,0 +1,16 @@
+.pagination {
+
+    @extend .pagination-centered;
+
+    ul {
+        @extend .pagination;
+
+        .page-number {
+            @extend .hidden-for-small;
+
+            &.current {
+                @extend .visible-for-small-up;
+            }
+        }
+    }
+}

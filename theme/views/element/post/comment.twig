@@ -1,12 +1,18 @@
 <article id="comment-{{ comment.ID }}"
          class="comment{{ (comment.comment_type and comment.comment_type != 'comment') ? ' comment-'~comment.comment_type }}">
-    <h3 class="comment-author"><a href="{{ comment.author.link }}">{{ comment.author.name }}</a> says</h3>
-
-    <div class="comment-content">{{ comment.comment_content|wpautop }}</div>
+    <header class="top">
+        <h3>
+            <a href="{{ comment.author.link }}"><img src="{{ comment.avatar }}" alt="{{ comment.author.name }}"> {{ comment.author.name }}</a>
+            <small>said <span>{{ comment.date|date }}</span></small>
+        </h3>
+    </header>
+    <section class="comment-content">
+        {{ comment.comment_content|wpautop }}
+    </section>
     {% if comment.comment_count %}
         <section class="comments">
             {% for cmt in comment.get_comments() %}
-                {% include "element/post/comment.twig" with {comment:cmt} only %}
+                {% include "element/post/comment.twig" with {comment:cmt} %}
             {% endfor %}
         </section>
     {% endif %}

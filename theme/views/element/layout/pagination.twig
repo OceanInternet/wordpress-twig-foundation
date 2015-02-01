@@ -1,0 +1,15 @@
+<aside class="pagination">
+    <ul>
+        {% for page in pagination.pages %}
+            {% if loop.first %}
+            <li{{ page.current ? ' class="unavailable"' }}><a href="{{ page.link }}"><i class="fa fa-angle-double-left"></i> first</a></li>
+            <li{{ (not pagination.prev or pagination.prev.current) ? ' class="unavailable"' }}><a href="{{ pagination.prev.link }}"><i class="fa fa-angle-left"></i> prev</a></li>
+            {% endif %}
+            <li class="page-number{{ page.class == 'dots' ? ' unavailable' }}{{ page.current ? ' current' }}"><a href="{{ page.link }}">{{ page.class == 'dots' ? '&hellip;' : page.title }}</a></li>
+            {% if loop.last %}
+            <li{{ (not pagination.next or pagination.next.current) ? ' class="unavailable"' }}><a href="{{ pagination.next.link }}">next <i class="fa fa-angle-right"></i></a></li>
+            <li{{ page.current ? ' class="unavailable"' }}><a href="{{ page.link }}">last <i class="fa fa-angle-double-right"></i></a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</aside>

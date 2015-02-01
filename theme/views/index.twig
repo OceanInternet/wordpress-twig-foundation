@@ -5,5 +5,6 @@
 		{% for post in posts %}
 			{% include ['element/tease-'~post.post_type~'.twig', 'element/tease.twig'] %}
 		{% endfor %}
+		{% include 'element/layout/pagination.twig' with { pagination: pagination } %}
 	</article>
 {% endblock %}

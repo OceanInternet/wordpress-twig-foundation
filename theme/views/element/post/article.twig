@@ -1,6 +1,6 @@
 {% extends "base.twig" %}
 {% block content %}
-    <article id="post-{{ post.ID }} class="post{{ (post.post_type and (post.post_type != 'post')) ? ' post-'~post.post_type }}{{ post.thumbnail ? ' has-thumbnail' }}{{ post.children ? ' has-children' }}{{ post.comment_status == 'open' ? ' allow-comments' }}{{ post.comments ? ' has-comments' }}">
+    <article id="post-{{ post.ID }} class="post{{ (post.post_type and (post.post_type != 'post')) ? ' post-'~post.post_type }}{{ post.thumbnail.src ? ' has-thumbnail' }}{{ post.children ? ' has-children' }}{{ post.comment_status == 'open' ? ' allow-comments' }}{{ post.comments ? ' has-comments' }}">
         <header>
             {% if post.title %}
     <h1>{% if post.can_edit %}
@@ -8,15 +8,8 @@
         </small>{% endif %}{{ post.title }}</h1>{% endif %}
             <p class="author text-right">by <a href="{{ post.author.link }}">{{ post.author.display_name }}</a> on {{ post.display_date }}</p>
         </header>
-        {% if post.thumbnail %}
-    <section class="post-thumbnail">
-        <figure>
-            <a href="{{ post.thumbnail.link }}"><img src="{{ post.thumbnail.src }}" alt="{{ post.thumbnail.caption }}"></a>
-            {% if post.thumbnail.caption %}
-                <figcaption>{{ post.thumbnail.caption }}</figcaption>
-            {% endif %}
-        </figure>
-    </section>
+        {% if post.thumbnail.src %}
+    {% include 'element/layout/thumbnail.twig' with { thumbnail:post.thumbnail} %}
 {% endif %}
         <section class="content">
         {{ post.content }}
@@ -58,14 +51,7 @@
 {% endif %}
         </aside>
         {% if post.prev or post.next %}
-    <aside class="prev-next">
-        {% if post.next %}
-            <div class="next"><a href="{{ post.next.link }}">&laquo; {{ post.next.title }}</a></div>
+            {% include 'element/layout/prev-next.twig' with {post: post} %}
         {% endif %}
-        {% if post.prev %}
-            <div class="prev"><a href="{{ post.prev.link }}">{{ post.prev.title }} &raquo;</a></div>
-        {% endif %}
-    </aside>
-{% endif %}
     </article>
 {% endblock %}

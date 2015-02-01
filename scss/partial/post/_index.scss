@@ -1,0 +1,28 @@
+.tease {
+    @extend .row;
+
+    .thumbnail {
+        @extend .large-4;
+        @extend .medium-6;
+        @extend .columns;
+        float: right;
+    }
+
+    &.has-thumbnail {
+        h2, p {
+            @extend .large-8;
+            @extend .medium-6;
+        }
+    }
+
+    h2, p {
+    @extend .large-12;
+        @extend .columns;
+
+        .read-more {
+            @extend small;
+        }
+    }
+
+    @extend .clearfix;
+}

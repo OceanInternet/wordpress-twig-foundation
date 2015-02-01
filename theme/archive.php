@@ -20,11 +20,11 @@
 
 		$data['title'] = 'Archive';
 		if (is_day()){
-			$data['title'] = 'Archive: '.get_the_date( 'D M Y' );
+			$data['title'] = 'Day: '.get_the_date( 'D M Y' );
 		} else if (is_month()){
-			$data['title'] = 'Archive: '.get_the_date( 'M Y' );
+			$data['title'] = 'Month: '.get_the_date( 'M Y' );
 		} else if (is_year()){
-			$data['title'] = 'Archive: '.get_the_date( 'Y' );
+			$data['title'] = 'Year: '.get_the_date( 'Y' );
 		} else if (is_tag()){
 			$data['title'] = single_tag_title('', false);
 		} else if (is_category()){
@@ -36,5 +36,6 @@
 		}
 
 		$data['posts'] = Timber::get_posts();
+$data['pagination'] = Timber::get_pagination();
 
 		Timber::render($templates, $data);

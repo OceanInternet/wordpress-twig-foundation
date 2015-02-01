@@ -1,11 +1,12 @@
 @mixin prev-next($target, $align) {
-
   @extend #{'.' + $target};
   @extend .medium-6;
   @extend .small-12;
   @extend .columns;
   a {
     width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     @extend #{'.text-' + $align};
     @extend .button;
   }

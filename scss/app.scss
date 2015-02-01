@@ -11,15 +11,20 @@
 @import "foundation/components/tables";
 @import "foundation/components/labels";
 @import "foundation/components/thumbs";
+@import "foundation/components/panels";
+@import "foundation/components/pagination";
 
 @import "font-awesome";
 
+@import "partial/layout/type";
 @import "partial/layout/admin-bar";
 @import "partial/layout/header";
 @import "partial/layout/main";
 @import "partial/layout/footer";
 @import "partial/layout/images";
+@import "partial/layout/pagination";
 
 @import "partial/content-slider";
 
+@import "partial/post/index";
 @import "partial/post/article";

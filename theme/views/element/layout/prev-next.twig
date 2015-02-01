@@ -1,0 +1,8 @@
+<aside class="prev-next">
+    {% if post.next %}
+        <div class="next"><a href="{{ post.next.link }}">&laquo; {{ post.next.title }}</a></div>
+    {% endif %}
+    {% if post.prev %}
+        <div class="prev"><a href="{{ post.prev.link }}">{{ post.prev.title }} &raquo;</a></div>
+    {% endif %}
+</aside>

@@ -1,0 +1,8 @@
+<section class="thumbnail">
+    <figure>
+            <a href="{{ thumbnail.link }}"><img src="{{ thumbnail.src(size) }}" alt="{{ thumbnail.caption }}"></a>
+        {% if thumbnail.caption %}
+            <figcaption>{{ thumbnail.caption }}</figcaption>
+        {% endif %}
+    </figure>
+</section>

@@ -1,9 +1,8 @@
 {% extends "element/tease.twig" %}
 {% block content %}
 	<h2><a href="{{post.link}}">{{post.title}}</a></h2>
-		<p>{{post.get_preview(25)}}</p>
-
-		{% if post.thumbnail.src %}
-			<img src="{{post.thumbnail.src}}" />
-		{% endif %}
+	{% if post.thumbnail.src %}
+{% include 'element/layout/thumbnail.twig' with { thumbnail:post.thumbnail, size: 'square' } only %}
+	{% endif %}
+	<p>{{post.get_preview(25)}}</p>
 {% endblock %}
